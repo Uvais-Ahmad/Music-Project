@@ -1,0 +1,630 @@
+:root{
+    --border: 1px dashed #a39a9a;
+    --box-shadow:0px 0px 20px 2px #0f2d7f;
+    --section-padding:10px;
+    --section-bottom-margin:40px;
+    --back-light-color:#081947;
+    --back-dark-color:#05102e;
+    --queue-link-color:#5fa198;
+}
+
+
+body{
+    margin: 0px;
+    padding: 10px 40px;
+    font-family: sans-serif;
+    height:2000px;
+    /* For stopping Full Page Scroll */
+    overflow-y:hidden;
+   
+}
+
+.playlist-name{
+    font-weight: border;
+    width: 100%;
+    margin:0px;
+    margin-bottom: 10px;
+}
+
+section{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: var(--section-bottom-margin);
+    box-sizing: border-box;
+
+}
+
+        /* %%%%%% FIxed NavBar      */
+#mainAside{
+    margin-top: 110px;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left:0;
+    right: 0;
+    padding: 10px 5px;
+    background-color: var(--back-dark-color);
+    z-index: 9999;
+}
+
+*{
+    color: white;
+    background-color:var(--back-dark-color);
+    box-sizing: border-box;
+}
+
+
+        /* ============================= HEADER section  ====================== */
+
+nav{
+    display: flex;
+    height: 80px;
+    /* min-width: 800px; */
+    /* margin-bottom: 40px; */
+
+}
+
+
+#logo{
+    width: 10%;
+    display:flex;
+}
+
+#logo img{
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+#fav{
+    align-items: center;
+    font-size: 1.3rem;
+    margin: auto 80px;
+    cursor: pointer;
+}
+
+#profile{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#nav-right{
+    display:flex;
+    justify-content: end;
+    align-items: center;
+    margin-left: auto;
+}
+
+#nav-right .item{
+    margin: 0px 5%;
+}
+
+.search input{
+    height:2rem;
+    padding: 20px;
+    padding-left: 40px;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    background-color: var(--back-light-color);
+    outline: none;
+    border: 0px;
+}
+
+.search i{
+    position: absolute;
+    padding:12px; 
+    margin: 0px;
+    border-radius: 50%;
+    background-color: var(--back-light-color);
+    cursor: pointer;
+
+}
+
+.notification{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+        /* ===========================  MAIN SECTION  ========================= */
+
+main::-webkit-scrollbar{
+    width:0px;
+}
+
+
+main{
+    width: 70%;
+    display: inline-block;
+    /* height: 100%; */
+    height: 85vh;
+    padding:var(--section-padding);
+    vertical-align: top;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    
+}
+        /* ---------------------------- Image Carousel  */
+
+#carousel{
+    justify-content: space-between;
+    
+}
+
+#carousel>div{
+    width: 32%;
+    margin: .5%;
+    transition: 600ms ease-in-out;
+
+}
+
+#carousel div img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* ******************* Crousal Decorate */
+#carousel div:hover{
+    transform: scale(1.1);
+}
+
+        /* --------------------------Latest Release        */
+/* 
+#latest-release{
+    flex-wrap: wrap;
+} */
+.lat-rel-items{
+    width: 46%;
+    display: flex;
+    margin: 8px 8px 8px 0px;
+    /* transition:.3s ease-in-out; */
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown{
+    width: 200px;
+    background-color:gray;
+    position:absolute;
+    top: 15%;
+    right: 5%;
+    display:none;
+}
+
+.lat-rel-items .icons:focus .dropdown{
+    display:block;
+    z-index: 99;
+}
+
+
+.lat-rel-items .drop-item{
+    display:flex;
+    justify-content: space-between;
+    padding:5px;
+    border-bottom: .5px solid black;
+    cursor: pointer;
+}
+
+.drop-item,.drop-item *{
+    background-color: #9297a3;
+    color: black;
+}
+.drop-item p{
+    margin: 1px;
+}
+
+.hoverImg{
+    display:none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    
+}
+.lat-rel-items .image:hover .hoverImg{
+    display:inline-block;
+    opacity: .4;
+    /* width: 161px; */
+    width: 40%;
+}
+
+.lat-rel-items:hover{
+    box-shadow: 0px 0px 10px 5px var(--back-light-color);
+}
+
+
+.lat-rel-items .image{
+    width: 40%;
+    margin-right: 40px;
+}
+
+.lat-rel-items .name-date{
+    align-self: center;
+    /* margin: 0; */
+}
+
+.lat-rel-items img{
+    height: 100%;
+    width: 100%;
+}
+
+.lat-rel-items .icons{
+    margin-left: auto;
+    position: relative;    
+}
+
+.lat-rel-items .icons i{
+    font-size: 2.1rem;
+    transition: 0.1s;
+}
+
+.lat-rel-items .icons i:active{
+    border-radius: 40%;
+    box-shadow: inset 0px 0px 10px #0f2d7f;
+}
+
+/* -------------Decorate */
+
+
+
+        /* -----------------------------Popular Artists     */
+
+#popular-artists{
+    justify-content: space-around;
+    position: relative;
+}
+
+.artist{
+    width:16%;
+    height: 16%;
+    text-align: center;
+    font-weight: bolder;
+    position: relative;
+    cursor: pointer;
+}
+
+
+.artist img{
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+}
+
+.overImg{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+
+.artist:hover .overImg{
+    display: inline-block;
+    width: 100%;
+    height: 65%;
+    
+    opacity:.4;
+}
+
+
+
+
+        /* ---------------------------------Stations        */
+#station{
+    /* border: var(--border); */
+    padding:15px;
+    justify-content:space-around;
+    background-color: #081947;
+}
+
+
+#station .items{
+    width:11%;
+    margin: 1%;
+    /* border: var(--border); */
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+    
+}
+#station .items:hover img{
+    transform:scale(1.3);
+}
+
+#station .items img{
+    height: 100%;
+    width: 100%;
+    transition: .1s ease-in-out;
+}
+
+.station-logo{
+    width: 15%;
+    margin: 5px;
+}
+.station-logo img{
+    height: 100%;
+    width: 100%;
+}
+            /* text Over image      */
+#station .items div{
+    position: absolute;
+    text-align: center;
+    padding-top: 45%;
+    font-weight: bolder;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    color:white;
+    background-color: rgba(129, 134, 143,.3);
+}
+
+
+        /* ------------------------------music-categories       */
+/* .category{
+    width: 30%;
+
+    margin: 10px;
+    /* position: relative; */
+    /* border: var(--border);
+}
+
+.category .image{
+    width:30%;
+
+}
+
+
+.category .image img{
+    width: 100%;
+    height: 100%;
+} */
+
+
+#music-categories{
+    justify-content: space-between;
+    
+    /* margin-bottom: var(--section-bottom-margin); */
+}
+
+#music-categories>div{
+    width: 32%;
+    margin: .5%;
+    position: relative;
+    overflow:hidden;
+    cursor: pointer;
+}
+
+#music-categories div img{
+    width: 100%;
+    height: 100%;
+    transition:.5s ease-in-out;
+}
+
+#music-categories>div:hover img{
+    transform:scale(1.3);
+}
+
+
+    /* --------Text Over ImAGEE     */
+
+#music-categories div p{
+    position: absolute;
+    margin: 0px;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    padding-top:30%;
+    text-align: center;
+    top:0%;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(30, 84, 166,.2);
+}
+
+        /* ----------------------- Latest English   */
+
+.latest-eng-hin{
+    justify-content: space-between;
+}
+
+.eng-song{
+    width:15%;
+    height:15%;
+    cursor: pointer;
+}
+.eng-song:hover{
+    box-shadow: var(--box-shadow);
+    
+}
+.eng-song img{
+    height: 100%;
+    width: 100%;
+}
+.eng-song p{
+    margin:5px;
+}
+
+
+
+
+/* ==================================  ASIDE SECTION  ========================= */
+
+aside{
+    width: 27%;
+    display: inline-block;
+    vertical-align: top;
+    padding:var(--section-padding);
+    
+}
+aside ol{
+    overflow-y: scroll;
+    height: 73vh;
+}
+
+ol::-webkit-scrollbar{
+    width:0px;
+}
+
+#Queue-link ,aside>h2{
+    display: inline-block;
+    justify-content: space-between;
+    margin: 3px;
+}
+aside > h2{
+    margin-right: 20%;
+}
+#Queue-link{
+    /* margin-left: 40%; */
+    height:40px;
+    position: relative;
+    cursor:pointer;
+}
+.as-drop {
+    width: 100px;
+    background-color: #9297a3;
+    color: black;
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+
+.as-drop p{
+    background-color: #9297a3;
+    color: black;
+    border-bottom: 1px solid black;
+    
+    padding:5px;
+}
+#Queue-link:focus .as-drop{
+    z-index: 99;
+}
+
+
+#Queue-link a ,#Queue-link a>i{
+    margin:0px 3px;
+    text-decoration: none;
+    color:var(--queue-link-color);
+    
+}
+
+.queue-item{
+    list-style-type:decimal-leading-zero;
+    margin: 10px 1px;
+}
+
+li::marker{
+    font-weight: bolder;
+    color: rgba(255, 255, 255, 0.6);
+    
+}
+.text-box p{
+    color: rgba(255, 255, 255, 0.6);;
+}
+
+ol li .img-box ,.text-box{
+    width: 30%;
+    height: 15%;
+    display:inline-block;
+    margin: 1%;
+    vertical-align: middle;
+}
+ol li div img{
+    height: 100%;
+    width: 100%;
+}
+.text-box h4,.text-box p{
+    margin: 7px;
+}
+.queue-item span{
+    line-height: 1.1rem;
+    margin-left: 15%;    
+}
+
+aside li:hover{
+    box-shadow: var(--box-shadow);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* @@@@@@@@@====@@@@@@@@@=====@@@@@@@@====@@@@@@@@====@@@@@@@====@@@@@@@====@@@@@@@ */
+/* ================================================================================ */
+
+/* -------------------------------------RESPONSIVE MEDIA QUERY --------------------------- */
+
+/* @@@@@@@@@====@@@@@@@@@=====@@@@@@@@====@@@@@@@@====@@@@@@@====@@@@@@@====@@@@@@@ */
+/* ================================================================================ */
+
+@media screen and (max-width:   1000px){
+
+    /* ========================================= LATEST RELEASE ===== */
+
+    .lat-rel-items .image{
+        margin-right: 15px;
+    }
+    
+    .lat-rel-items .icons i,.lat-rel-items p,p{
+        font-size: .9rem;
+        margin: 2px;
+        
+    }
+    aside > h2{
+        display:none;
+    }
+    .text-box h4,.text-box p{
+        margin: 4px;
+    }
+    h3{
+        font-size: 1rem;
+    }
+   
+}
+
+@media screen and (max-width:   800px){
+    .search input{
+        box-sizing: border-box;
+        height:1rem;
+
+        width:70%;
+        padding: 15px;
+        padding-left: 30px;
+        font-size: .9rem;
+        transition:.5s ease-in-out;
+        margin: 1px 5px;
+    }
+    .search input:focus{
+        width:100%;
+    }
+    .search i{
+         font-size: .9rem;
+         padding:8px;
+    }
+    #fav {
+        font-size: 1rem;
+        
+    }
+    .notification{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width:   750px){
+    
+}
